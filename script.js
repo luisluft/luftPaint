@@ -82,6 +82,8 @@ function createCanvas() {
 
 // Clear Canvas
 clearCanvasBtn.addEventListener("click", () => {
+  bucketColor = `#ffffff`;
+
   createCanvas();
   drawnArray = [];
   // Active Tool
@@ -161,6 +163,8 @@ canvas.addEventListener("mouseup", () => {
 // Save to Local Storage
 saveStorageBtn.addEventListener("click", () => {
   localStorage.setItem("savedCanvas", JSON.stringify(drawnArray));
+  bucketColor = `#${bucketColorBtn.value}`;
+  localStorage.setItem("bucketColor", JSON.stringify(bucketColor));
 
   // Active Tool
   activeToolEl.textContent = "Canvas Saved";
@@ -171,6 +175,8 @@ saveStorageBtn.addEventListener("click", () => {
 loadStorageBtn.addEventListener("click", () => {
   if (localStorage.getItem("savedCanvas")) {
     drawnArray = JSON.parse(localStorage.getItem("savedCanvas"));
+    bucketColor = JSON.parse(localStorage.getItem("bucketColor"));
+    createCanvas();
     restoreCanvas();
 
     // Active Tool
