@@ -163,7 +163,6 @@ canvas.addEventListener("mouseup", () => {
 // Save to Local Storage
 saveStorageBtn.addEventListener("click", () => {
   localStorage.setItem("savedCanvas", JSON.stringify(drawnArray));
-  bucketColor = `#${bucketColorBtn.value}`;
   localStorage.setItem("bucketColor", JSON.stringify(bucketColor));
 
   // Active Tool
